@@ -1,0 +1,50 @@
+<div style="text-align:center">
+  <h1>
+    Create New Template
+  </h1>
+</div>
+<form [formGroup]="templateForm">
+  <label>
+    Template Name:
+    <input type="text" formControlName="name" required>
+  </label>
+  <!--div ngModelGroup="tab">-->
+  <div formArrayName="newTabs"
+  *ngFor="let newTab of templateForm.get('newTabs').controls; let i = index;">
+    <div [formGroupName]="i">
+    <h3>Tabs</h3>
+      <label>
+        Tab Id:
+        <mat-form-field>
+          <mat-label>Select Tab</mat-label>
+          <mat-select placeholder="selectedTab" formControlName="tabId">
+            <mat-option *ngFor="let tab of tabs" [value]="tab.id">
+              {{ tab.title }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </label>
+      <div>
+        <h3>Kpis</h3>
+        <label>
+          Kpi Id:
+          <mat-form-field>
+            <mat-label>Select Kpi</mat-label>
+            <!-- <mat-select [formControlName]="kpi" multiple> -->
+            <mat-select formControlName="kpi" multiple>
+              <mat-option *ngFor="let kpi of kpis" [value]="kpi.id">
+                {{ kpi.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </label>
+      </div>
+    </div>
+  </div>
+  <button mat-flat-button color="primary" (click)="addTab()">
+    Add New Tab
+  </button>
+</form>
+
+
+    

@@ -1,0 +1,21 @@
+<ng-template [ngIf]="template">
+
+  <h2>{{ template.id}}. {{ template.name | uppercase}}</h2>
+
+  <mat-tab-group *ngIf="template.tabs">
+    <mat-tab *ngFor="let tab of template.tabs">
+      <ng-template mat-tab-label>
+        <div *ngIf="tab.id">{{ tab.title }}</div>
+      </ng-template>
+      <div *ngIf="tab.kpis">
+        <ng-container *ngFor="let kpi of tab.kpis">
+          <h4 *ngIf="kpi.id">{{ kpi.name }}</h4>
+          <div *ngFor="let level of kpi.levels">
+          Level: {{ level.name }} &nbsp; &nbsp; Value: {{ level.value }}
+          </div>
+        </ng-container>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+  
+</ng-template>

@@ -1,0 +1,20 @@
+<div style="text-align:center">
+    <h1>
+      Templates
+    </h1>
+</div>
+
+<a *ngFor="let template of templates" class="col-1-4"
+routerLink="/templates/{{ template.id}}">
+  <div class="module template">
+    <h4>{{ template.name}}</h4>
+  </div>
+</a>
+
+<a routerLink="/templates/create" class="col-1-4">
+  <div class="module template">
+    <h4>Create New Template</h4>
+  </div>
+</a>
+
+<!--app-template-detail [template]="selectedTemplate"></app-template-detail>-->
