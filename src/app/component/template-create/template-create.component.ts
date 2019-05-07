@@ -17,11 +17,12 @@ import { TemplatesService } from '../../service/templates.service';
 })
 export class TemplateCreateComponent implements OnInit {
 
+  templateName: string;
+
   tabs: Tab[] = [];
   selectedTab: number;
 
   kpis: Kpi[] = [];
-  mulkpis = new FormControl([]);
 
   templateForm: FormGroup;
   newTabs: FormArray;
@@ -64,6 +65,11 @@ export class TemplateCreateComponent implements OnInit {
     this.newTabs = this.templateForm.get('newTabs') as FormArray;
     debugger;
     this.newTabs.push(this.createTab());
+  }
+
+  onSubmit() {
+    // TODO: Use EventEmitter with form value
+    console.warn(this.templateForm.value.name);
   }
 
 }

@@ -3,7 +3,7 @@
     Create New Template
   </h1>
 </div>
-<form [formGroup]="templateForm">
+<form [formGroup]="templateForm" (ngSubmit)="onSubmit()">
   <label>
     Template Name:
     <input type="text" formControlName="name" required>
@@ -17,7 +17,7 @@
         Tab Id:
         <mat-form-field>
           <mat-label>Select Tab</mat-label>
-          <mat-select placeholder="selectedTab" formControlName="tabId">
+          <mat-select formControlName="tabId">
             <mat-option *ngFor="let tab of tabs" [value]="tab.id">
               {{ tab.title }}
             </mat-option>
@@ -30,7 +30,6 @@
           Kpi Id:
           <mat-form-field>
             <mat-label>Select Kpi</mat-label>
-            <!-- <mat-select [formControlName]="kpi" multiple> -->
             <mat-select formControlName="kpi" multiple>
               <mat-option *ngFor="let kpi of kpis" [value]="kpi.id">
                 {{ kpi.name }}
@@ -44,6 +43,7 @@
   <button mat-flat-button color="primary" (click)="addTab()">
     Add New Tab
   </button>
+  <button mat-stroked-button color="primary" type="submit">Submit</button>
 </form>
 
 
