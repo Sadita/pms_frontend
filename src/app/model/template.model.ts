@@ -1,3 +1,5 @@
+import { Kpi } from './kpi.model';
+
 export interface Template {
     id: number;
     name: string;
@@ -14,4 +16,18 @@ export interface Template {
             }]
         }]
     }]
+}
+
+export interface TemplateCreate {
+    name: string;
+    tabs: TabCreate[];
+}
+
+export interface TabCreate {
+    id: number;
+        kpis: KpiCreate[];
+}
+
+export interface KpiCreate {
+    id: number;
 }

@@ -3,7 +3,7 @@
     Create New Template
   </h1>
 </div>
-<form [formGroup]="templateForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="templateForm">
   <label>
     Template Name:
     <input type="text" formControlName="name" required>
@@ -43,8 +43,5 @@
   <button mat-flat-button color="primary" (click)="addTab()">
     Add New Tab
   </button>
-  <button mat-stroked-button color="primary" type="submit">Submit</button>
 </form>
-
-
-    
+<button mat-stroked-button color="primary" type="submit" (click)="onSubmit()">Save</button>
